@@ -29,11 +29,13 @@ def main(fasta):
 						result.append(2)
 					else:
 						result.append(-1)
-				else x != y:
+				elif x != y:
 					if x=='-' or y=='-':
 						result.append(2)
 					else:
 						result.append(1)
+				else:
+					pass
 
 			for num,i in enumerate(result):
 				if num == 0:
