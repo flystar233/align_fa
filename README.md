@@ -13,6 +13,12 @@ align_fa is a script for checking the differences between the two alignment sequ
 |   -  |    2  |    2   |   2    |   2     |    2   |
 
 ## Example
+```
+>chr1
+tgagtaccaaaccaaggatactgatatattggcagcattc
+>chr2
+tgactatggaaccaaagatactgatatcttggcagcattc
+```
 ```python
  python work.py -a align.fa
 ```
