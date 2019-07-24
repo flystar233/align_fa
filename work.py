@@ -29,7 +29,7 @@ def main(fasta):
 						result.append(2)
 					else:
 						result.append(-1)
-				elif x != y:
+				else x != y:
 					if x=='-' or y=='-':
 						result.append(2)
 					else:
