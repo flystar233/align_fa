@@ -16,4 +16,4 @@ align_fa is a script for checking the differences between the two alignment sequ
 ```python
  python work.py -a align.fa
 ```
-![](https://raw.githubusercontent.com/flystar233/pic_bed/master/filename.png?token=AE34FB6XPF6UBWXFHMISHOS5HAT7C)
+![](https://i.loli.net/2019/07/24/5d382ae355a0787430.png)
