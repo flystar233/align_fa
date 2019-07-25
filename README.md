@@ -30,6 +30,6 @@ tgagtaccaaaccaaggatactgatatattggcagcattc
 tgactatggaaccaaagatactgatatcttggcagcattc
 ```
 ```python
- python work.py -a align.fa
+ python work.py -a align.fa -s Default12
 ```
 ![](https://i.loli.net/2019/07/24/5d382ae355a0787430.png)
