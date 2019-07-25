@@ -24,10 +24,10 @@ align_fa is a script for checking the differences between the two alignment sequ
 
 ## Example
 ```
->seq1
-tgagtaccaaaccaaggatactgatatattggcagcattc
->seq2
-tgactatggaaccaaagatactgatatcttggcagcattc
+>Anabas_testudineus_like_C1
+TGTCAGGGGCAAAATCTATGAGAACCAATCAGATCATGGCGTTTCCTGGACAGTGGTCAGCCCCATCGTATTCACCTACAGAGTCACTCAGTGCAGAACCTGCTGGATCCCACAAATGACACGTTGCTCTGGGGTCATTTAGACGAAGAA------CCT
+>Xiphophorus_couchianus_like_C2
+TTTCAGATGCAAAATCTACGAGAACAAATCTGACCAAGGAGTTTCCTGGACGGTGGTGAGCCCCATTGTTTTCACCTACAGAGTCATTCAGTGTAAGATCTACTGGATCCCAGGAATGACACTTTGCTCTGGGGACACATAGACGAAGAA------CTT
 ```
 ```python
  python work.py -a align.fa -s Default12
