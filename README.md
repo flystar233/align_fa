@@ -32,4 +32,4 @@ tgactatggaaccaaagatactgatatcttggcagcattc
 ```python
  python work.py -a align.fa -s Default12
 ```
-![](https://i.loli.net/2019/07/24/5d382ae355a0787430.png)
+![](https://i.loli.net/2019/07/25/5d3995421a00088464.png)
