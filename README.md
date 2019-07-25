@@ -2,7 +2,7 @@
 
 align_fa is a script for checking the differences between the two alignment sequences visually.Through it, you can directly see which points have changed.In addition, the fitting function is also given.K ranges from -1 to 2,-1 means that the two sequences are identical;2 means that the two sequences are '-';0 means that the two sequences are half the same,1 means that the two sequences are completely different.
 
-## Score matrix
+## Default score matrix
 
 |      |   A   |   T   |   C   |   G   |   -   |
 | :--: | :--:  | :--:  | :--:  | :--:  | :--:  |
@@ -11,6 +11,16 @@ align_fa is a script for checking the differences between the two alignment sequ
 |   C  |   1   |    1   |   -1   |    1   |    2   |
 |   G  |   1   |    1   |    1   |   -1    |    2   |
 |   -  |    2  |    2   |   2    |   2     |    2   |
+
+## Blast score matrix
+
+|      |   A   |   T   |   C   |   G   |   -   |
+| :--: | :--:  | :--:  | :--:  | :--:  | :--:  |
+|   A  |   -5  |   4    |    4   |   4   |   5    |
+|   T  |   4   |   -5   |   4   |   4    |    5   |
+|   C  |   4   |    4   |   -5   |    4   |    5  |
+|   G  |   4   |    4   |    4   |   -5    |    5   |
+|   -  |    5  |    5   |   5    |   5     |    5   |
 
 ## Example
 ```
