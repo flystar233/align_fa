@@ -51,15 +51,24 @@ def main(fasta):
 			f3 = np.polyfit(x, result, 3)
 			p3 = np.poly1d(f3)
 			yvals3 = p3(x)
-
+			
+			plt.figure(figsize=(10,7.2))
 			plt.style.use('ggplot')
 			plt.xlabel("base site")
-			plt.scatter(x,result,s=10)
-			plt.plot(x,result)
+			
+			if 0 < len(result) < 200:
+				plt.scatter(x,result,s=5)
+				plt.plot(x,result)
+			elif 200 < len(result) < 1000:
+				plt.scatter(x,result,s=0.5)
+				plt.plot(x,result,lw=1)
+			else:
+				plt.scatter(x,result,s=0.1)
+				plt.plot(x,result,lw=1)
 			plt.plot(x, yvals1,label=p1)
 			plt.plot(x, yvals3)
 			plt.legend()
-			plt.savefig("result.png")
+			plt.savefig("result.pdf")
 
 	except TypeError:
 			print("File not found,please input existing file or use option --help")
