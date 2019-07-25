@@ -55,11 +55,20 @@ def main(fasta,score):
 					else:
 						pass
 
+			variation_site = []
+			for num,i in enumerate(result):
+				if i > 0:
+					variation_site.append(num)
+				else:
+					pass
 			for num,i in enumerate(result):
 				if num == 0:
 					pass
 				else:
 					result[num]=result[num-1]+result[num]
+			variation_value = []
+			for i in variation_site:
+				variation_value.append(result[i])
 
 			x = range(len(result))
 			f1 = np.polyfit(x, result, 1)
@@ -69,20 +78,24 @@ def main(fasta,score):
 			f3 = np.polyfit(x, result, 3)
 			p3 = np.poly1d(f3)
 			yvals3 = p3(x)
-			plt.figure(figsize=(10,7.2))
 			plt.style.use('ggplot')
-			plt.xlabel("base site")
 			if 200 < len(result) < 1000:
-				plt.scatter(x,result,s=0.5)
+				plt.figure(figsize=(10,7.2))
+				#plt.scatter(x,result,s=0.5)
 				plt.plot(x,result,lw=1)
+				plt.scatter(variation_site,variation_value,s=3,color='yellow')
 			elif 0 < len(result) < 200:
-				plt.scatter(x,result,s=5)
+				#plt.scatter(x,result,s=5)
 				plt.plot(x,result)
+				plt.scatter(variation_site,variation_value,s=10,color='yellow')
 			else:
-				plt.scatter(x,result,s=0.1)
+				plt.figure(figsize=(10,7.2))
+				#plt.scatter(x,result,s=0.1)
 				plt.plot(x,result,lw=1)
+				plt.scatter(variation_site,variation_value,s=2,color='yellow')
 			plt.plot(x, yvals1,label=p1)
 			plt.plot(x, yvals3)
+			plt.xlabel("base site")
 			plt.legend()
 			if score == 'Default12':
 				plt.savefig("result_Default12.pdf")
