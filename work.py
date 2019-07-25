@@ -23,8 +23,8 @@ def main(fasta,score):
 				Dict[key] = ''.join(value)
 
 			key1,key2 = Dict.keys()
-			fasta1 = Dict[key1]
-			fasta2 = Dict[key2]
+			fasta1 = Dict[key1].upper()
+			fasta2 = Dict[key2].upper()
 			result=[]
 			if score == 'Default12':
 				for x,y in zip(fasta1,fasta2):
