@@ -6,7 +6,10 @@ import numpy as np
 @click.option(
     "-a", "--fasta", type=click.Path(exists=True), help="the alignment fasta"
     )
-def main(fasta):
+@click.option(
+    "-s", "--score", default="Default12",type=click.Choice(['Default12','blast']),help="Scoring Matrix"
+    )
+def main(fasta,score):
 	try:
 		with open(fasta) as IN:
 			Dict = {}
@@ -23,19 +26,34 @@ def main(fasta):
 			fasta1 = Dict[key1]
 			fasta2 = Dict[key2]
 			result=[]
-			for x,y in zip(fasta1,fasta2):
-				if x == y:
-					if x=='-' or y=='-':
-						result.append(2)
+			if score == 'Default12':
+				for x,y in zip(fasta1,fasta2):
+					if x == y:
+						if x=='-' or y=='-':
+							result.append(2)
+						else:
+							result.append(-1)
+					elif x != y:
+						if x=='-' or y=='-':
+							result.append(2)
+						else:
+							result.append(1)
 					else:
-						result.append(-1)
-				elif x != y:
-					if x=='-' or y=='-':
-						result.append(2)
+						pass
+			else:
+				for x,y in zip(fasta1,fasta2):
+					if x == y:
+						if x=='-' or y=='-':
+							result.append(5)
+						else:
+							result.append(-5)
+					elif x != y:
+						if x=='-' or y=='-':
+							result.append(5)
+						else:
+							result.append(4)
 					else:
-						result.append(1)
-				else:
-					pass
+						pass
 
 			for num,i in enumerate(result):
 				if num == 0:
@@ -51,24 +69,25 @@ def main(fasta):
 			f3 = np.polyfit(x, result, 3)
 			p3 = np.poly1d(f3)
 			yvals3 = p3(x)
-			
 			plt.figure(figsize=(10,7.2))
 			plt.style.use('ggplot')
 			plt.xlabel("base site")
-			
-			if 0 < len(result) < 200:
-				plt.scatter(x,result,s=5)
-				plt.plot(x,result)
-			elif 200 < len(result) < 1000:
+			if 200 < len(result) < 1000:
 				plt.scatter(x,result,s=0.5)
 				plt.plot(x,result,lw=1)
+			elif 0 < len(result) < 200:
+				plt.scatter(x,result,s=5)
+				plt.plot(x,result)
 			else:
 				plt.scatter(x,result,s=0.1)
 				plt.plot(x,result,lw=1)
 			plt.plot(x, yvals1,label=p1)
 			plt.plot(x, yvals3)
 			plt.legend()
-			plt.savefig("result.pdf")
+			if score == 'Default12':
+				plt.savefig("result_Default12.pdf")
+			else:
+				plt.savefig("result_blast.pdf")
 
 	except TypeError:
 			print("File not found,please input existing file or use option --help")
