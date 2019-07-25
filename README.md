@@ -24,9 +24,9 @@ align_fa is a script for checking the differences between the two alignment sequ
 
 ## Example
 ```
->chr1
+>seq1
 tgagtaccaaaccaaggatactgatatattggcagcattc
->chr2
+>seq2
 tgactatggaaccaaagatactgatatcttggcagcattc
 ```
 ```python
