@@ -1,6 +1,5 @@
 # align_fa
 
-![Total visitor](https://visitor-count-badge.herokuapp.com/total.svg?repo_id=flystar233.align_fa)
 
 align_fa is a script for checking the differences between the two alignment sequences visually.Through it, you can directly see which points have changed.In addition, the fitting function is also given.K ranges from -1 to 2,-1 means that the two sequences are identical;2 means that the two sequences are '-';0 means that the two sequences are half the same,1 means that the two sequences are completely different.
 
